@@ -1,0 +1,105 @@
+<div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'top'">
+  <div *ngIf="patient$ | async as patients">
+    <div class="baseinfo">
+      <a>姓名：</a><input nz-input placeholder="{{patients.name}}" nzSize="default" class="baseinfoinput">
+      <a>性别：</a><input nz-input placeholder="{{patients.gender}}" nzSize="default" class="baseinfoinput">
+      <a>年龄：</a><input nz-input placeholder="{{patients.age}}" nzSize="default" class="baseinfoinput">
+      <a>电话：</a><input nz-input placeholder="{{patients.tel}}" nzSize="default" class="baseinfoinput">
+    </div>
+    <div class="baseinfo">
+      <a>身高：</a><input nz-input placeholder="180" nzSize="default" class="baseinfoinput">
+      <a>体重：</a><input nz-input placeholder="180" nzSize="default" class="baseinfoinput">
+      <a>学历：</a><input nz-input placeholder="180" nzSize="default" class="baseinfoinput">
+      <a>工作：</a><input nz-input placeholder="180" nzSize="default" class="baseinfoinput">
+    </div>
+    <div *ngIf="Gender" class="baseinfo2">
+      <a>总共怀孕：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+      <a>足月产&nbsp;&nbsp;&nbsp;&nbsp;：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+      <a>早产：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+      <a>人流：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+    </div>
+    <div *ngIf="Gender" class="baseinfo2">
+      <a>难免流产：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+      <a>异位妊娠：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>次</a>
+      <a *ngIf="Abortion" style="font-weight: bold; cursor: pointer">流产详细情况</a>
+    </div>
+    <div class="baseinfo">
+      <a>本人慢性疾病：</a><input nz-input placeholder="高血压" nzSize="default" class="baseinfoinput">
+      <a>烟酒史 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</a><input nz-input placeholder="无" nzSize="default" class="baseinfoinput">
+      <a>婚姻史：</a><input nz-input placeholder="已婚" nzSize="default" class="baseinfoinput">
+    </div>
+    <div class="baseinfo">
+      <a>配偶疾病史 &nbsp;&nbsp;：</a><input nz-input placeholder="无" nzSize="default" class="baseinfoinput">
+      <a>父母慢性疾病：</a><input nz-input placeholder="无" nzSize="default" class="baseinfoinput">
+      <a>家族史：</a><input nz-input placeholder="无" nzSize="default" class="baseinfoinput">
+    </div>
+    <div *ngIf="Gender" class="baseinfo2">
+      <a>末次月经：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2">
+      <a>月经周期：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>天</a>
+      <a>经期：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2"><a>天</a>
+      <a>初潮年龄：</a><input nz-input placeholder="1" nzSize="default" class="baseinfoinput2">
+    </div>
+    <div *ngIf="Gender" class="baseinfo2">
+      <a>月经量&nbsp;&nbsp;&nbsp;&nbsp;：</a><input nz-input placeholder="多" nzSize="default" class="baseinfoinput2">
+      <a>痛经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：</a><input nz-input placeholder="有" nzSize="default" class="baseinfoinput2">
+    </div>
+    <div class="basetab">
+      <button nz-button (click)="changeStatus(0)">杂项情况</button>
+      <button nz-button (click)="changeStatus(1)">血栓相关</button>
+      <button nz-button (click)="changeStatus(2)">外周血细胞情况</button>
+      <button nz-button (click)="changeStatus(3)">外周血淋巴细胞</button>
+      <button nz-button (click)="changeStatus(4)">抗凝蛋白</button>
+    </div>
+    <div class="basetab">
+      <button nz-button (click)="changeStatus(5)">性激素</button>
+      <button nz-button (click)="changeStatus(6)">甲功</button>
+      <button nz-button (click)="changeStatus(7)">不良反应</button>
+      <button nz-button (click)="changeStatus(8)">新生儿情况</button>
+      <button nz-button (click)="changeStatus(9)">男性因素</button>
+    </div>
+    <div class="basetab">
+      <button nz-button (click)="changeStatus(10)">用药</button>
+      <button nz-button (click)="changeStatus(11)">孕期情况</button>
+      <button nz-button (click)="changeStatus(12)">B超</button>
+    </div>
+  </div>
+  <div *ngIf="Status[0]" class="specinfo">
+    <app-result></app-result>
+  </div>
+  <div *ngIf="Status[1]" class="specinfo">
+    <app-thromboelastogram></app-thromboelastogram>
+  </div>
+  <div *ngIf="Status[2]" class="specinfo">
+    <app-peripheral-blood-cytokines></app-peripheral-blood-cytokines>
+  </div>
+  <div *ngIf="Status[3]" class="specinfo">
+    <app-peripheral-blood-lymphocyte></app-peripheral-blood-lymphocyte>
+  </div>
+  <div *ngIf="Status[4]" class="specinfo">
+    <app-anticoagulant-protein></app-anticoagulant-protein>
+  </div>
+  <div *ngIf="Status[5]" class="specinfo">
+    <app-sex-hormone></app-sex-hormone>
+  </div>
+  <div *ngIf="Status[6]" class="specinfo">
+    <app-agong></app-agong>
+  </div>
+  <div *ngIf="Status[7]" class="specinfo">
+    <app-bad-reaction></app-bad-reaction>
+  </div>
+  <div *ngIf="Status[8]" class="specinfo">
+    <app-list1></app-list1>
+  </div>
+  <div *ngIf="Status[9]" class="specinfo">
+    <app-male></app-male>
+  </div>
+  <div *ngIf="Status[10]" class="specinfo">
+    <app-medicine></app-medicine>
+  </div>
+  <div *ngIf="Status[11]" class="specinfo">
+    <app-pregancy></app-pregancy>
+  </div>
+  <div *ngIf="Status[12]" class="specinfo">
+    <app-ultrasound-b></app-ultrasound-b>
+  </div>
+</div>

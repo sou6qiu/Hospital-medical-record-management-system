@@ -1,0 +1,120 @@
+<!--<h1>用药情况</h1>-->
+<!--<div class="example-input">-->
+  <!--阿司匹林（mg）：-->
+  <!--<nz-input-number [(ngModel)]="aspl" [nzMin]="0" [nzMax]="1000" [nzStep]="1"></nz-input-number><br/>-->
+  <!--低分子肝素（支）：-->
+  <!--<nz-input-number [(ngModel)]="gansu" [nzMin]="1" [nzMax]="100" [nzStep]="1"></nz-input-number><br/>-->
+  <!--强的松（g）:-->
+  <!--<nz-input-number [(ngModel)]="qds" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--羟氯喹（g）:-->
+  <!--<nz-input-number [(ngModel)]="lv" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--环孢素（g）:-->
+  <!--<nz-input-number [(ngModel)]="hbs" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--达芙通（g）:-->
+  <!--<nz-input-number [(ngModel)]="dft" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--补佳乐（g）：-->
+  <!--<nz-input-number [(ngModel)]="bjl" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--溴隐亭（g）:-->
+  <!--<nz-input-number [(ngModel)]="xyt" [nzMin]="0" [nzMax]="10" [nzStep]="0.1" [nzPlaceHolder]="'0.4'"></nz-input-number><br/>-->
+  <!--糖皮质激素（mg）：-->
+  <!--<nz-input-number [(ngModel)]="tpz" [nzMin]="0" [nzMax]="1000" [nzStep]="1"></nz-input-number><br/>-->
+<!--</div>-->
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+<div>
+  <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <div nz-row >
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="12">阿司匹林</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">低分子肝素</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="12">强的松</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <div nz-row >
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">羟氯喹</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">环孢素</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">达芙通</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+    <div nz-row >
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">补佳乐</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">溴隐亭</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">糖皮质激素</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+
+    <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-control [nzSpan]="24" [nzOffset]="24">
+        <button nz-button nzType="primary">保存</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+
+
+</nz-collapse-panel>
+</nz-collapse>

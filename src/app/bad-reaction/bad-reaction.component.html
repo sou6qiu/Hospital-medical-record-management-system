@@ -1,0 +1,82 @@
+
+<!--<h1>不良反应监测</h1>-->
+
+<!--<div class="example-input">-->
+  <!--出血：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述"></textarea><br/>-->
+  <!--过敏：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述">></textarea><br/>-->
+  <!--骨质疏松：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述">></textarea><br/>-->
+  <!--肝损：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述">></textarea><br/>-->
+  <!--血小板减少：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述">></textarea><br/>-->
+  <!--其他：<br/>-->
+  <!--<textarea rows="4" nz-input [(ngModel)]="inputValue" placeholder="情况描述">></textarea><br/>-->
+<!--</div>-->
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+    <div>
+      <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+        <div nz-row >
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">出血</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">过敏</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">骨质疏松</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">肝损</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">血小板减少</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">其他</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <textarea nz-input placeholder="Autosize height with minimum and maximum number of lines" [(ngModel)]="value" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>          </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <nz-form-item nz-row style="margin-bottom:8px;">
+          <nz-form-control [nzSpan]="24" [nzOffset]="24">
+            <button nz-button nzType="primary">保存</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>
+
+
+
+
+

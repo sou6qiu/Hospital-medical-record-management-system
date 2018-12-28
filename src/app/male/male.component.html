@@ -1,0 +1,117 @@
+<!--<p>-->
+<!--DNA碎片率25% 	空腹胰岛素2.6-->
+<!--1、男性精液检查：浓度、活力、前向运动率、精子畸形率；-->
+<!--2、精子DNA碎片率：-->
+<!--3、血型：-->
+<!--4、支原体：     衣原体：-->
+<!--</p>-->
+
+<!--<h1>男方筛查</h1>-->
+<!--<h2>精液检查</h2>-->
+<!--精液常规异常项：-->
+<!--<nz-input-number [(ngModel)]="yichang" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number><br/>-->
+<!--浓度：-->
+<!--<nz-input-number [(ngModel)]="a" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>-->
+<!--活力：-->
+<!--<nz-input-number [(ngModel)]="b" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>-->
+<!--前向运动率：-->
+<!--<nz-input-number [(ngModel)]="c" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number>-->
+<!--精子畸形率：-->
+<!--<nz-input-number [(ngModel)]="d" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number><br/>-->
+<!--精子DNA碎片率：-->
+<!--<nz-input-number [(ngModel)]="suipian" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzFormatter]="formatterPercent" [nzParser]="parserPercent"></nz-input-number><br/>-->
+<!--空腹胰岛素:-->
+<!--<nz-input-number [(ngModel)]="yds" [nzMin]="0" [nzMax]="100" [nzStep]="0.1" [nzPlaceHolder]="'2.6'"></nz-input-number><br/>-->
+
+<!--<h2>遗传检查</h2>-->
+<!--染色体：-->
+<!--<input nz-input placeholder="染色体" nzSize="default" style="width: 200px;">-->
+<!--<h2>血型检查</h2>-->
+<!--血型：-->
+<!--<nz-radio-group [(ngModel)]="xuexing">-->
+<!--<label nz-radio nzValue="A">A</label>-->
+<!--<label nz-radio nzValue="B">B</label>-->
+<!--<label nz-radio nzValue="AB">AB</label>-->
+<!--<label nz-radio nzValue="O">O</label>-->
+<!--<label nz-radio nzValue="else">其它</label>-->
+<!--</nz-radio-group>-->
+<!--<h2>感染检查</h2>-->
+<!--支原体：-->
+<!--<input nz-input placeholder="支原体" nzSize="default" style="width: 200px;">-->
+<!--衣原体：-->
+<!--<input nz-input placeholder="衣原体" nzSize="default" style="width: 200px;">-->
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+
+    <div>
+      <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+        <div nz-row>
+          <div nz-col>
+            <nz-form-item>
+              <nz-form-label>精液常规异常项</nz-form-label>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">浓度</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">活力</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">前向运动率</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">精子畸形率</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">精子DNA碎片率</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]="25"></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12">空腹胰岛素</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]="2.6"></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <nz-form-item nz-row style="margin-bottom:8px;">
+          <nz-form-control [nzSpan]="24" [nzOffset]="24">
+            <button nz-button nzType="primary">保存</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>

@@ -1,0 +1,48 @@
+.baseinfo{
+  margin-top: 15px;
+}
+
+.baseinfo a{
+  margin-left: 20px;
+  font-size: 15px;
+  color: rgba(0,0,0,.65);
+  cursor: default;
+}
+
+.baseinfo2{
+  margin-top: 15px;
+}
+
+.baseinfo2 a{
+  margin-left: 20px;
+  font-size: 15px;
+  cursor: default;
+}
+
+.baseinfoinput{
+  width: 120px;
+  font-size: 15px;
+}
+
+.baseinfoinput2{
+  width: 80px;
+  font-size: 15px;
+}
+
+.basetab{
+  margin-top: 15px;
+}
+
+.basetab button{
+  margin-left: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+}
+
+.specinfo{
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 1050px;
+}

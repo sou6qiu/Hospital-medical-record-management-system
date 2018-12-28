@@ -1,0 +1,109 @@
+<!--<h1>新生儿随访情况</h1>-->
+<!--分娩时间：<input nz-input placeholder="2018-10-1 16:00 30'" nzSize="default" style="width: 150px;"><br/>-->
+<!--分娩方式：-->
+  <!--<nz-radio-group [(ngModel)]="radioValue" nzName="radiogroup">-->
+    <!--<label nz-radio nzValue="剖腹产">剖腹产</label>-->
+    <!--<label nz-radio nzValue="顺产">顺产</label>-->
+  <!--</nz-radio-group><br/>-->
+  <!--婴儿性别：-->
+  <!--<nz-radio-group [(ngModel)]="radioValue" nzName="radiogroup">-->
+    <!--<label nz-radio nzValue="male">男</label>-->
+    <!--<label nz-radio nzValue="female">女</label>-->
+  <!--</nz-radio-group><br/>-->
+<!--Apgar评分：<input nz-input placeholder="10" nzSize="default"><br/>-->
+<!--婴儿出生体重：<input nz-input placeholder="2800g" nzSize="default"><br/>-->
+<!--婴儿出生身长：<input nz-input placeholder="51" nzSize="default"><br/>-->
+<!--喂养方式：-->
+  <!--<nz-checkbox-group [(ngModel)]="checkOptionsOne" (ngModelChange)="log(checkOptionsOne)"></nz-checkbox-group><br/>-->
+<!--畸形：-->
+  <!--<nz-radio-group [(ngModel)]="radioValue" nzName="radiogroup">-->
+    <!--<label nz-radio nzValue="yes">有</label>-->
+    <!--<label nz-radio nzValue="no">无</label>-->
+  <!--</nz-radio-group>-->
+
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+    <div>
+      <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+        <div nz-row >
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12" [nzXs]="12">APGAR评分</nz-form-label>
+              <nz-form-control [nzSm]="12" [nzXs]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="10" [nzStep]="0" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row >
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12" [nzXs]="12">婴儿出生体重</nz-form-label>
+              <nz-form-control [nzSm]="12" [nzXs]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="10" [nzStep]="0" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="8">
+            <nz-form-item>
+              <nz-form-label [nzSm]="12" [nzXs]="12">婴儿出生身长</nz-form-label>
+              <nz-form-control [nzSm]="12" [nzXs]="12">
+                <nz-input-number [nzMin]="0" [nzMax]="10" [nzStep]="0" [nzPlaceHolder]=""></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row >
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">分娩方式</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <nz-radio-group [(ngModel)]="radioValue">
+                  <label nz-radio nzValue="有">剖宫产</label>
+                  <label nz-radio nzValue="无">顺产</label>
+                </nz-radio-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">喂养方式</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <nz-radio-group [(ngModel)]="radioValue">
+                  <label nz-radio nzValue="有">母乳</label>
+                  <label nz-radio nzValue="无">奶粉</label>
+                </nz-radio-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="24">
+            <nz-form-item>
+              <nz-form-label [nzSm]="4" [nzXs]="4">畸形</nz-form-label>
+              <nz-form-control [nzSm]="20" [nzXs]="20">
+                <nz-radio-group [(ngModel)]="radioValue">
+                  <label nz-radio nzValue="有">有</label>
+                  <label nz-radio nzValue="无">无</label>
+                </nz-radio-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <nz-form-item nz-row style="margin-bottom:8px;">
+          <nz-form-control [nzSpan]="24" [nzOffset]="24">
+            <button nz-button nzType="primary">保存</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+
+  </nz-collapse-panel>
+</nz-collapse>
+
+
+
+
