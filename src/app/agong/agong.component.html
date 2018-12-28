@@ -1,0 +1,63 @@
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+    <div>
+  <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <div nz-row >
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="12">TSH</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">FT3</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="24">FT4</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="24">
+            <nz-input-number [nzMin]="0" [nzMax]="100" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <div nz-row >
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="12">TPOAb</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="1000" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div nz-col [nzSpan]="8">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12">TGAb</nz-form-label>
+          <nz-form-control [nzSm]="12">
+            <nz-input-number [nzMin]="0" [nzMax]="1000" [nzStep]="0.01" [nzPlaceHolder]=""></nz-input-number>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-control [nzSpan]="24" [nzOffset]="24">
+        <button nz-button nzType="primary">保存</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+
+  </nz-collapse-panel>
+</nz-collapse>

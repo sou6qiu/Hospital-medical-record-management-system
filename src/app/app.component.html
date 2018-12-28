@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nz-layout class="layout">
+  <nz-header style="background:#0a72ff">
+    <div nz-row style="">
+      <div nz-col [nzSpan]="18">
+        <img height="64px" src="../assets/logo3A.png" alt="logo">
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-input-group style="width: 210px;" [nzSuffix]="suffixIconSearch" >
+          <input type="text" nz-input placeholder="站内搜索">
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <i nz-icon type="search"></i>
+        </ng-template></div>
+    </div>  </nz-header>
+  <nz-layout>
+    <nz-sider style="background:#ffffff">
+    <app-sidebar></app-sidebar>
+    </nz-sider>
+    <nz-layout style="padding:0 24px 24px;background:#ffffff">
+      <nz-content><router-outlet></router-outlet></nz-content>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
