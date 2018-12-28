@@ -1,0 +1,32 @@
+<nz-table
+  #rowSelectionTable
+  [nzData]="dataSet"
+  [nzPageSize]="10"
+  (nzPageIndexChange)="refreshStatus()"
+  (nzPageSizeChange)="refreshStatus()">
+  <thead>
+  <tr>
+    <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+    <th>病历编号</th>
+    <th>姓名</th>
+    <th>性别</th>
+    <th>年龄</th>
+    <th>电话</th>
+    <th>日期</th>
+    <th><button nz-button nzType="primary">添加</button><nz-divider nzType="vertical"></nz-divider><button nz-button nzType="danger">删除</button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patient of patients">
+    <td nzShowCheckbox [(nzChecked)]="patient.checked" (nzCheckedChange)="refreshStatus()"></td>
+    <td>{{patient.id}}</td>
+    <td>{{patient.name}}</td>
+    <td>{{patient.gender}}</td>
+    <td>{{patient.age}}</td>
+    <td>{{patient.tel}}</td>
+    <td>{{patient.date}}</td>
+    <td ><a routerLink="/patient/{{patient.id}}" style="cursor: pointer">编辑</a><nz-divider nzType="vertical"></nz-divider>
+      <a>删除</a></td>
+  </tr>
+  </tbody>
+</nz-table>
