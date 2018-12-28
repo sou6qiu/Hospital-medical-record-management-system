@@ -1,0 +1,29 @@
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+    <p>{{panel.name}}</p>
+
+    <div>
+  <form nz-form [nzLayout]="'horizontal'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <div nz-row>
+      <div nz-col [nzSpan]="12">
+        <nz-form-item>
+          <nz-form-label [nzSm]="12" [nzXs]="12">畸形有无</nz-form-label>
+          <nz-form-control [nzSm]="12" [nzXs]="12">
+            <nz-radio-group [(ngModel)]="radioValue">
+              <label nz-radio nzValue="有">有</label>
+              <label nz-radio nzValue="无">无</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </div>
+
+    <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-control [nzSpan]="24" [nzOffset]="24">
+        <button nz-button nzType="primary">保存</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+  </nz-collapse-panel>
+</nz-collapse>

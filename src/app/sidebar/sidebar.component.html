@@ -1,0 +1,13 @@
+<ul nz-menu [nzMode]="'inline'" style="width: 220px;">
+  <li nz-submenu [(nzOpen)]="openMap.sub1" (nzOpenChange)="openHandler('sub1')">
+    <span title><i nz-icon type="mail"></i>人员名单</span>
+    <ul>
+      <li nz-menu-group>
+        <span title>人员名单</span>
+        <ul>
+          <li nz-menu-item routerLink="/index">人员名单</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
